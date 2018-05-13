@@ -5,7 +5,10 @@ import Calculate from './lottery/calculate.js';
 import Interface from './lottery/interface.js';
 import $ from 'jquery';
 
+
+// 深拷贝
 const copyProperties = function (target, source) {
+    // Reflect.ownKeys  获取对象
     for (let key of Reflect.ownKeys(source)) {
         if (key !== 'constructor' && key !== 'prototype' && key !== 'name') {
             let desc = Object.getOwnPropertyDescriptor(source, key);
@@ -14,6 +17,7 @@ const copyProperties = function (target, source) {
     }
 }
 
+// 继承方法
 const mix = function (...mixins) {
     class Mix {}
     for (let mixin of mixins) {
@@ -23,6 +27,7 @@ const mix = function (...mixins) {
     return Mix
 }
 
+// 实现类的多重继承
 class Lottery extends mix(Base, Calculate, Interface, Timer) {
     constructor(name = 'syy', cname = '11选5', issue = '**', state = '**') {
         super();
