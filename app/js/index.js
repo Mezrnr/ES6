@@ -1,12 +1,2 @@
-let a = {a:1};
-
-
-class Test{
-    constructor(){
-        this.a = 'hello world'
-    }
-}
-
-let test = new Test();
-
-document.body.innerHTML = test.a;
+// babel-polyfill es7兼容库
+import 'babel-polyfill';
